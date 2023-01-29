@@ -1,8 +1,8 @@
-package ru.netology.web.test;
+package ru.netology.test;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.web.data.DataHelper;
-import ru.netology.web.page.LoginPage;
+import ru.netology.data.DataHelper;
+import ru.netology.page.LoginPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -84,7 +84,7 @@ public class MoneyTransferTest {
      * This test finds the bug.
      */
     @Test
-    void shouldTransferMoneyIfAmountMoreThanBalance() {
+    void shouldNotTransferMoneyIfAmountMoreThanBalance() {
         open("http://localhost:9999");
         var loginPage = new LoginPage();
         var accountInfo = DataHelper.getAccountInfo();
