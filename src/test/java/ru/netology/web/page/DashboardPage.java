@@ -1,10 +1,9 @@
 package ru.netology.web.page;
 
 import com.codeborne.selenide.ElementsCollection;
-import lombok.NoArgsConstructor;
 import lombok.val;
 import org.openqa.selenium.By;
-import ru.netology.web.data.DataHelper.IdToCard;
+import ru.netology.web.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.not;
@@ -22,6 +21,13 @@ public class DashboardPage {
         return extractBalance(text);
     }
 
+    public TransferPage replenishCardFrom(DataHelper.IdToCard from) {
+        cards.findBy(not(attribute("data-test-id", from.getId())))
+                .find(By.cssSelector("button"))
+                .click();
+        return new TransferPage();
+    }
+
     private int extractBalance(String text) {
         val start = text.indexOf(balanceStart);
         val finish = text.indexOf(balanceFinish);
@@ -29,12 +35,7 @@ public class DashboardPage {
         return Integer.parseInt(value);
     }
 
-    public void transferMoney(IdToCard from, int amount) {
-        cards.findBy(not(attribute("data-test-id", from.getId())))
-                .find(By.cssSelector("button"))
-                .click();
-        $("[data-test-id=amount] input").setValue(String.valueOf(amount));
-        $("[data-test-id=from] input").setValue(from.getCard());
-        $("[data-test-id=action-transfer]").click();
+    public void reloadPage() {
+        $("[data-test-id=action-reload]").click();
     }
 }
