@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'ru.netology'
+group 'ru.netology.web'
 version '1.0-SNAPSHOT'
 
 compileJava.options.encoding = "UTF-8"

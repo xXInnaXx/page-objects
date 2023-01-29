@@ -1,9 +1,9 @@
-package ru.netology.page;
+package ru.netology.web.page;
 
 import com.codeborne.selenide.ElementsCollection;
 import lombok.val;
 import org.openqa.selenium.By;
-import ru.netology.data.DataHelper;
+import ru.netology.web.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.not;

@@ -1,8 +1,8 @@
-package ru.netology.test;
+package ru.netology.web.test;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.data.DataHelper;
-import ru.netology.page.LoginPage;
+import ru.netology.web.data.DataHelper;
+import ru.netology.web.page.LoginPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
