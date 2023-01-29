@@ -13,4 +13,4 @@ install:
   - java -jar ./artifacts/app-ibank-build-for-testers.jar &
 
 build_script:
-  - ./gradlew ru.netology.web.test -Dselenide.headless=true --info
+  - ./gradlew test -Dselenide.headless=true --info
